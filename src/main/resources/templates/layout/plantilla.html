@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head th:fragment="head">
+        <meta charset="UTF-8">
+            <link th:href="@{/estilos/estilos.css}" rel="stylesheet" type="text/css">
+                <title>TECNOTOPIA</title>
+                </head>
+
+                <body class="bodyhome">
+                    <header th:fragment="header" class="header">
+                        <nav class="navbar">
+                            <div class="logo" style="display: flex;align-items: center;">
+                                <span style="color:#01939c; font-size:26px; font-weight:bold; letter-spacing: 1px;margin-left: 20px;">TECNOTOPIA</span>
+                            </div>
+                            <div class="Divshome">
+                                <div class="line1"></div>
+                                <div class="line2"></div>
+                                <div class="line3"></div>
+                            </div>
+                            <ul class="nav-links">
+                                <li><a th:href="@{/Home}">Home</a></li>
+                                <li><a th:href="@{/Computadoras}">Computadoras</a></li>
+                                <li><a th:href="@{/Consolas}">Consolas</a></li>
+                                <li><a th:href="@{/Juegos}">Juegos</a></li>
+                                <li><a th:href="@{/Contactanos}">Contactanos</a></li>
+                            </ul>
+                            <a th:href="@{/inicio_sesion}"><button class="login-button">Iniciar Sesión</button></a>
+                        </nav>
+                        <script th:src="@{/js/main.js}"></script>
+                    </header> 
+                </body>
+                </html>
