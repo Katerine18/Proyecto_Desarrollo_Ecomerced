@@ -452,9 +452,37 @@ label input[type="checkbox"] {
   padding-top: 15%;
 }
 
-@media (min-width: 400px) and (max-width: 800px) {
+@media (min-width: 400px) and (max-width: 900px) {
     .caja-contactanos {
-      width: 26rem;
+      width: 25rem;
+      height: auto;
+      flex-direction: column;
+      text-align: center;
+      padding-right: 6%;
+    }
+
+    .columna-izquierda, .columna-derecha {
+      flex-grow: 0;
+      flex-shrink: 0;
+      width: 100%;
+      padding: 5%;
+    }
+
+    .div-icons-left {
+      padding-top: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .span-icons-contact-left {
+        padding-top: 5%;
+        margin: 0 6%;
+    }
+  }
+  
+  @media (min-width: 0px) and (max-width: 400px) {
+    .caja-contactanos {
+      width: 15rem;
       height: auto;
       flex-direction: column;
       text-align: center;
