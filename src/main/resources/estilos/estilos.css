@@ -479,7 +479,7 @@ label input[type="checkbox"] {
         margin: 0 6%;
     }
   }
-  
+
   @media (min-width: 0px) and (max-width: 400px) {
     .caja-contactanos {
       width: 15rem;
