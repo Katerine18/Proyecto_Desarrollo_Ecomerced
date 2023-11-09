@@ -228,7 +228,7 @@ label input[type="checkbox"] {
 /*Navbar*/
 .navbar{
    height: 4.5rem;
-   width: 100vw;
+   width: 100%;
    background-color: #131418;
    box-shadow: 0 3px 20px rgba(0, 0, 0, 0.2);
    display: flex;
@@ -237,26 +237,26 @@ label input[type="checkbox"] {
 }
 
 .logo{
-   padding:1vh 1vw;
-   text-align: center;
-}
-.logo img {
-   height: 5rem;
-   width: 5rem;
+   color:#01939c;
+   font-size:26px;
+   font-weight:bold;
+   letter-spacing: 1px;
+   margin-left: 50px;
 }
 
 .nav-links{
    display: flex;
    list-style: none;
-   width: 88vw;
-   padding: 0 0.7vw;
-   justify-content: space-evenly;
+   justify-content: center;
    align-items: center;
    text-transform: uppercase;
+   margin-left: -4%;
+   margin-top: 15px;
 }
 .nav-links li a{
    text-decoration: none;
    margin: 0 0.7vw;
+   margin-left: 25px; 
 }
 .nav-links li a:hover {
    color: #61DAFB;
@@ -269,16 +269,15 @@ label input[type="checkbox"] {
 }
 /*Fin Navbar*/
 
-
+/*Login Button*/
 .login-button{
    background-color: transparent;
    border: 1.5px solid #A3E4D7;
    border-radius: 2em;
    padding: 0.6rem 0.8rem;
-   margin-left: 2vw;
+   margin-right: 60px;
    font-size: 1rem;
    cursor: pointer;
-
 }
 .login-button:hover {
    color: #131418;
@@ -301,18 +300,7 @@ label input[type="checkbox"] {
    border:1.5px solid #A3E4D7;
    transition: all ease-in-out 350ms;
 }
-
-
-.Divshome div{
-   width: 30px;
-   height:3px;
-   background: #f2f5f7;
-   margin: 5px;
-   transition: all 0.3s ease;
-}
-.Divshome{
-   display: none;
-}
+/*Fin Login Button*/
 
 @media screen and (max-width: 800px){
    .navbar{
@@ -332,7 +320,7 @@ label input[type="checkbox"] {
    .nav-links{
        position: fixed;
        background: #131418;
-       height: 100vh;
+       height: 100;
        width: 100%;
        flex-direction: column;
        clip-path: circle(50px at 90% -20%);
