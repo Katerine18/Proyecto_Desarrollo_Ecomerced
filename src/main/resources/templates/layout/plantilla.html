@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
     <head th:fragment="head">
-        <title>TECNOTOPIA</title>
+        <title>Tecnotopia</title>
         <meta charset="UTF-8"/>
         <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
         <link th:href="@{/webjars/font-awesome/css/all.css}" rel="stylesheet"/>
-        <link href="/css/estilos.css" rel="stylesheet" type="text/css"/>
+        <link th:href="@{/css/estilos.css}" rel="stylesheet" type="text/css"/>
         <script th:src="@{/js/rutinas.js}"></script>
         <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
         <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
         <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-    </head>    
+
+    </head>
     <body class="bodyhome">
         <header th:fragment="header" class="header">
-            <nav class="navbar">
-                <div><span class="logo">TECNOTOPIA</span></li></div>
-                 <ul class="nav-links">
+            <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0">
+                <div class="container">
+                    <span class="logo">Tecnotopia</span></div>
+                <ul class="nav-links">     
                     <li><a th:href="@{/}">Inicio</a></li>
                     <li><a th:href="@{/Computadoras/Computadoras}">Computadoras</a></li>
                     <li><a th:href="@{/Consola/Consolas}">Consolas</a></li>
@@ -23,13 +25,19 @@
                     <li><a th:href="@{/Favoritos/FavoritosUsuario}">Favoritos</a></li>
                     <li><a th:href="@{/Juegos/Juegos}">Juegos</a></li>
                     <li><a th:href="@{/Noticias/Noticias}">Noticias</a></li>
-                    <li><a th:href="@{/Registro/Registro}">Registro</a></li>
                     <li><a th:href="@{/Reseñas/Reseñas}">Reseñas</a></li>
                 </ul>
-                <a th:href="@{/inicio/inicio_sesion}"><button class="login-button">Iniciar Sesión</button></a>
-                <!-- <a th:href="@{/inicio/inicio_sesion}"><button class="login-button">Iniciar Sesión</button></a> -->
             </nav>
             <script th:src="@{/js/main.js}"></script>
         </header>
+        <div th:fragment="imagen-slider">
+            <div class="image-container">
+                <img th:src="@{https://extremetechcr.com/tienda/10855-thickbox_default/webcam-razer-kiyo.jpg}" height="300" />
+                <img th:src="@{https://extremetechcr.com/tienda/6109-large_default/adata-su630-960gb.jpg}" height="300" />
+                <img th:src="@{https://extremetechcr.com/tienda/30769-large_default/intel-core-i5-14600k.jpg}" height="300" />
+                <img th:src="@{https://extremetechcr.com/tienda/28708-large_default/xpg-xenia-15g-i7-12650h-rtx-4060-16gb-144hz-ssd.jpg}" height="300" />
+            </div>
+        </div>
+
     </body>
 </html>

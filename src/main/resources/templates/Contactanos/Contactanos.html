@@ -1,90 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{layout/plantilla :: head}">
+        <title>TODO supply a title</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="../estilos/estilos.css" type="text/css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
-        <title>Ecommerce de Tecnología</title>
     </head>
-    <body class="bodyhome">
-        <nav class="navbar">
-            <div class="logo" style="display: flex;align-items: center;">
-                <span style="color:#01939c; font-size:26px; font-weight:bold; letter-spacing: 1px;margin-left: 20px;">TECNOTOPIA</span>
-            </div>
-            <div class="Divshome">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="Computadoras.html">Computadoras</a></li>
-                <li><a href="Consolas.html">Consolas</a></li>
-                <li><a href="Juegos.html">Juegos</a></li>
-                <li><a href="Contactanos.html">Contactanos</a></li>
-            </ul>
-            <a href="inicio_sesion.html"><button class="login-button">Iniciar Sesión</button></a>
-
-        </nav>
-        <script src="/js/main.js"></script>
-
-        <div class="caja-contactanos">
-            <div class="columna-izquierda">
-
-                <div>
-                <h3 class="text-title-contact">Contáctenos</h3>
-                <br>
-                <p class="text-contact">Tecnotopia es un nuevo ecommerce dedicado a la venta de artículos tecnológicos de última generación. Contamos con un amplio catálogo de laptops, periféricos, smartphones y más. Si tienes alguna pregunta o necesitas ayuda, no dudes en contactarnos.</p>
-                </div>
-
-                <div class="div-icons-left">
-                    <span class="span-icons-contact-left"><i class="fa-solid fa-microchip" style="color: black;"></i></span>
-                    <span class="span-icons-contact-left"><i class="fa-solid fa-computer" style="color: black;"></i></span>
-                    <span class="span-icons-contact-left"><i class="fa-solid fa-mobile-screen-button" style="color: black;"></i></span>
-                    <span class="span-icons-contact-left"><i class="fa-sharp fa-solid fa-memory" style="color: black;"></i></span>
-                </div>
-
-            </div>
-            <div class="columna-derecha">
-
-                <div>
-                <h3 class="text-title-contact">Infomación de contacto</h3>
-                <br>
-                </div>
-
-                <div>
-                <h3 class="text-subtitle-contact"><span class="span-icons-contact-right"><i class="fa-solid fa-location-dot" style="color: black;"></i></span>Dirección</h3>
-                <br>
-                <h4 class="text-contact">Heredia Centro, Oficina #3</h4>
-                <br>
-                </div>
-
-                <div>
-                <h3 class="text-subtitle-contact"><span class="span-icons-contact-right"><i class="fa-solid fa-clock" style="color: black;"></i></span>Horario de atención</h3>
-                <br>
-                <h4 class="text-contact">Lunes a Viernes - 8:00a.m a 5:00p.m</h4>
-                <br>
-                </div>
-
-                <div>
-                <h3 class="text-subtitle-contact"><span class="span-icons-contact-right"><i class="fa-solid fa-envelope" style="color: black;"></i></span>Correo electrónico</h3>
-                <br>
-                <h4 class="text-contact">ventas@tecnotopia.cr</h4>
-                <br>
-                </div>
-
-                <div>
-                    <h3 class="text-subtitle-contact"><span class="span-icons-contact-right"><i class="fa-solid fa-phone" style="color: black;"></i></span>Teléfono</h3>
-                    <br>
-                    <h4 class="text-contact">+506 2267-1808</h4>
-                    <br>
-                    </div>
-
-            </div>
-        </div>
-
+    <body>
+        <header th:replace="~{layout/plantilla :: header}"/>
+        <section th:replace="~{Contactanos/fragmentos :: contactanos}"/>
     </body>
 </html>
+ 

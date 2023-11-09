@@ -1,16 +1,18 @@
 <!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
-    
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
     <head th:replace="~{layout/plantilla :: head}">
-        <title>Ecommerce de Tecnología</title>
+        <title>Tecnotopia</title>
         <meta charset="UTF-8">
     </head>
-    
     <body>
         <header th:replace="~{layout/plantilla :: header}"/>
+       <section th:replace="~{inicio/fragmentos :: botoninicioSesion}"/>
+        <section th:replace="~{inicio/fragmentos :: InicioSesion}"/>
+        <section th:replace="~{Registro/fragmentos :: botonRegistro}"/>
+        <section th:replace="~{Registro/fragmentos :: registroUsuario}"/>
+        <section th:replace="~{layout/plantilla :: imagen-slider}"/>
     </body>
-    
 </html>
+
+
 
