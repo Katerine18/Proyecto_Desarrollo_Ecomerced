@@ -62,6 +62,99 @@ label span.texto-checkbox {
 }
 
 /*Fin Pagina Registro y login*/
+
+/* Variables */
+:root {
+    --carousel-control-color:             #ffffff;
+    --white:                             #ffffff;
+    --carousel-control-width:            15%;
+    --carousel-control-opacity:          0.5;
+    --carousel-control-hover-opacity:    0.9;
+    --carousel-control-transition:       opacity 0.15s ease;
+
+    --carousel-indicator-width:          30px;
+    --carousel-indicator-height:         3px;
+    --carousel-indicator-hit-area-height:10px;
+    --carousel-indicator-spacer:         3px;
+    --carousel-indicator-opacity:        0.5;
+    --carousel-indicator-active-bg:      #ffffff;
+    --carousel-indicator-active-opacity: 1;
+    --carousel-indicator-transition:     opacity 0.6s ease;
+
+    --carousel-caption-width:            70%;
+    --carousel-caption-color:            #ffffff;
+    --carousel-caption-padding-y:        1.25rem;
+    --carousel-caption-spacer:           1.25rem;
+
+    --carousel-control-icon-width:       2rem;
+
+    --carousel-control-prev-icon-bg:     url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='"#{$carousel-control-color}"'><path d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/></svg>");
+    --carousel-control-next-icon-bg:     url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$carousel-control-color}'><path d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/></svg>");
+
+    --carousel-transition-duration:      0.6s;
+    --carousel-transition:               transform var(--carousel-transition-duration) ease-in-out;
+}
+
+/* Styles */
+body {
+    background-image: url("https://images.pexels.com/photos/6156390/pexels-photo-6156390.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: "Open Sans", sans-serif;
+    color: #333333;
+}
+
+/* Estilo personalizado para el botón de inicio de sesión */
+button.mover-abajo-izquierda {
+    background-color: var(--carousel-control-color);
+    color: var(--white);
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    position: absolute;
+    left: 1150px;
+    top: 82px; /* Mover hacia abajo */
+}
+
+
+/* Transiciones */
+.carousel-transition {
+    transition: var(--carousel-transition);
+}
+
+/* Control de Carrusel */
+.carousel-control {
+    width: var(--carousel-control-width);
+    opacity: var(--carousel-control-opacity);
+    transition: var(--carousel-control-transition);
+}
+
+.carousel-control:hover {
+    opacity: var(--carousel-control-hover-opacity);
+}
+
+/* Indicadores de Carrusel */
+.carousel-indicator {
+    width: var(--carousel-indicator-width);
+    height: var(--carousel-indicator-height);
+   
+}
+
+.carousel-indicator-active {
+    background-color: var(--carousel-indicator-active-bg);
+    opacity: var(--carousel-indicator-active-opacity);
+    transition: var(--carousel-indicator-transition);
+}
+
+/* Control de Carrusel Iconos */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-size: var(--carousel-control-icon-width);
+ 
+}
+
+
 /* Estilo CSS para el contenedor de imágenes */
 .image-container {
     text-align: center; 

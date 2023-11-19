@@ -6,60 +6,29 @@
         <title>Tecnotopia</title>
     </head>
     <body>
-        <!-- Sección para crear el botón de registro -->
-        <section th:fragment="botonRegistro" class="py-4 mb-4  custom-button-container">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3">
-                        <button 
-                            type="button" 
-                            class="btn btn-primary btn-block custom-button mover-registro" 
-                            data-bs-toggle="modal" 
-                            data-bs-target="#registroUsuario">
-                            <i class="fas fa-user-plus"></i> Registrarse
-                        </button>
-                    </div>
+        <div th:fragment="registro-formulario">
+            <form action="" class="form">
+                <h1 class="title">Registro</h1>
+                <div class="inp">
+                    <input type="text" name="" id="" class="input" placeholder="Nombre de usuario">
+                        <i class="fa-solid fa-user"></i>
                 </div>
-            </div>
-        </section>
-
-
-
-        <!-- 2 Fragmento para el formulario de registro en una ventana modal -->
-        <section th:fragment="registroUsuario">
-            <div id="registroUsuario" 
-                 class="modal fade " 
-                 tabindex="-1" 
-                 aria-labelledby="exampleModalLabel" 
-                 aria-hidden="true">
-                <div class="modal-dialog modal-md">
-                    <div class="modal-content">
-                        <div class="modal-header bg-info text-white">
-                            <h5 class="modal-title">Registro de Usuario</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div> 
-                        <form th:action="@{/registro}" method="POST" class="was-validated">
-                            <div class="modal-body">
-                                <div class="mb-3">
-                                    <label for="username">Nombre de usuario</label>
-                                    <input type="text" class="form-control" name="username" required="true"/>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="password">Contraseña</label>
-                                    <input type="password" class="form-control" name="password" required="true"/>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="email">Correo electrónico</label>
-                                    <input type="email" class="form-control" name="email" required="true"/>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button class="btn btn-primary" type="submit">Registrarse</button>
-                            </div>
-                        </form>
-                    </div>
+                <div class="inp">
+                    <input type="password" name="" id="" class="input" placeholder="Contraseña">
+                        <i class="fa-solid fa-lock"></i>
                 </div>
+                <div class="inp">
+                    <input type="password" name="" id="" class="input" placeholder="Confirmar contraseña">
+                        <i class="fa-solid fa-lock"></i>
+                </div>
+                <button class="submit">Registrarse</button>
+                <p class="footer">¿Ya tienes una cuenta? <a href="#" class="link">Iniciar Sesión</a></p>
+            </form>
+            <div></div>
+            <div class="banner">
+                <h1 class="wel_text">Bienvenid@</h1><br>
+                    <p class="para"></p>
             </div>
-        </section>
+        </div>
     </body>
 </html>
