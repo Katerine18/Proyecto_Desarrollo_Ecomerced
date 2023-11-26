@@ -1,31 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="../estilos/estilos.css" type="text/css">
 
-        <title>Tecnotopia</title>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{layout/plantilla :: head}">
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
     </head>
-    <body class="bodyhome">
-        <nav class="navbar">
-            <div class="logo" style="display: flex;align-items: center;">
-                <span style="color:#01939c; font-size:26px; font-weight:bold; letter-spacing: 1px;margin-left: 20px;">TECNOTOPIA</span>
-            </div>
-            <aside>
-                <h1 class="aviso">Noticias</h1> 
-                <p>¡Proximamente! </p>
-            </aside>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="Computadoras.html">Computadoras</a></li>
-                <li><a href="Consolas.html">Consolas</a></li>
-                <li><a href="Juegos.html">Juegos</a></li>
-                <li><a href="Contactanos.html">Contactanos</a></li>
-            </ul>
-            <a href="inicio_sesion.html"><button class="login-button">Iniciar Sesión</button></a>
-    </nav>
-    <script src="/js/main.js"></script>
-</body>
+    <body>
+        <header th:replace="~{layout/plantilla :: header}"/>
+        <section th:replace= "~{Noticias/fragmentos :: Noticias-container}">
+    </body>
 </html>
