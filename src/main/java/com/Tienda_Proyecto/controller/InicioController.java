@@ -1,7 +1,9 @@
 package com.Tienda_Proyecto.controller;
 
-import com.Tienda_Proyecto.domain.Inicio;
-import com.Tienda_Proyecto.service.InicioService;
+import com.Tienda_Proyecto.domain.Categoria;
+import com.Tienda_Proyecto.domain.Producto;
+import com.Tienda_Proyecto.service.CategoriaService;
+import com.Tienda_Proyecto.service.ProductoService;
 import com.Tienda_Proyecto.service.impl.FirebaseStorageServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,41 +19,69 @@ import org.springframework.web.multipart.MultipartFile;
 public class InicioController {
 
     @Autowired
-    private InicioService inicioService;
-
-    @GetMapping("/nuevo")
-    public String InicioNuevo(Inicio inicio) {
-        return "/inicio/modifica";
-    }
-
+    private ProductoService productoService;
+    
     @Autowired
-    private FirebaseStorageServiceImpl firebaseStorageService;
+    private CategoriaService categoriaService;
 
-    @PostMapping("/guardar")
-    public String categoriaGuardar(Inicio inicio,
-            @RequestParam("imagenFile") MultipartFile imagenFile) {
-        if (!imagenFile.isEmpty()) {
-            inicioService.save(inicio);
-            inicio.setRutaImagen(
-                    firebaseStorageService.cargaImagen(
-                            imagenFile,
-                            "categoria",
-                            inicio.getIdCategoria()));
-        }
-        inicioService.save(inicio);
-        return "redirect:/inicio/inicio_sesion";
+    @GetMapping("/listado")
+    public String listado(Model model) {
+        var productos = productoService.getProductos(false);
+        model.addAttribute("productos", productos);
+        model.addAttribute("totalProductos", productos.size());
+        
+        var categorias = categoriaService.getCategorias(true);
+        model.addAttribute("categorias", categorias);
+        return "/inicio/listado";
+    }
+    
+    @GetMapping("/listado/{idCategoria}")
+    public String listado(Model model, Categoria categoria) {
+        var productos = categoriaService.getCategoria(categoria).getProductos();
+        var categorias = categoriaService.getCategorias(false);
+        model.addAttribute("productos", productos);
+        model.addAttribute("totalProductos", productos.size());
+        model.addAttribute("categorias", categorias);
+        return "/inicio/listado";
+    }
+    
+    @GetMapping("/listado2")
+    public String listado2(Model model) {
+        var productos = productoService.getProductos(false);
+        model.addAttribute("productos", productos);
+        model.addAttribute("totalProductos", productos.size());
+        
+        var categorias = categoriaService.getCategorias(true);
+        model.addAttribute("categorias", categorias);
+        return "/inicio/listado2";
+    }
+    
+    @PostMapping("/query1")
+    public String consulta1(@RequestParam(value="precioInf") double precioInf,
+            @RequestParam(value="precioSup") double precioSup,
+            Model model) {
+        
+        var productos = productoService.consultaQuery(precioInf, precioSup);
+        model.addAttribute("productos", productos);
+        
+        model.addAttribute("precioInf", precioInf);
+        model.addAttribute("precioSup", precioSup);
+        
+        return "/inicio/listado2";
+    }
+    
+    @PostMapping("/query2")
+    public String consulta2(@RequestParam(value="precioInf") double precioInf,
+            @RequestParam(value="precioSup") double precioSup,
+            Model model) {
+        
+        var productos = productoService.consultaJPQL(precioInf, precioSup);
+        model.addAttribute("productos", productos);
+        
+        model.addAttribute("precioInf", precioInf);
+        model.addAttribute("precioSup", precioSup);
+        
+        return "/inicio/listado2";
     }
 
-    @GetMapping("/eliminar/{idCategoria}")
-    public String categoriaEliminar(Inicio inicio) {
-        inicioService.delete(inicio);
-        return "redirect:/inicio/inicio_sesion";
-    }
-
-    @GetMapping("/modificar/{idCategoria}")
-    public String categoriaModificar(Inicio inicio, Model model) {
-        inicio = inicioService.getCategoria(inicio);
-        model.addAttribute("inicio", inicio);
-        return "/inici/modifica";
-    }
 }

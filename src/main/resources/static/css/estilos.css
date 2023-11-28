@@ -341,8 +341,8 @@ button.mover-abajo-izquierda {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 50%;
-    height: 50%;
+    width: 60%;
+    height: 500px;
     padding: 20px;
     border-radius: 10px;
     display: flex;
@@ -389,11 +389,11 @@ button.mover-abajo-izquierda {
 
 .span-icons-contact-right {
     margin-right: 2%;
-    font-size: 20px;
+    font-size: 25px;
 }
 
 .span-icons-contact-left {
-    font-size: 30px; /* Tamaño de fuente más pequeño */
+    font-size: 45px; /* Tamaño de fuente más pequeño */
     margin: 6%;
 }
 
@@ -457,14 +457,14 @@ button.mover-abajo-izquierda {
     }
 }
 
-/*Inicio del Carousel*/
+/*Inicio del Carousel Noticias*/
 
 .Noticias-container {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 70%;
+    width: 60%;
 }
 
 .carousel-inner {
@@ -488,3 +488,25 @@ button.mover-abajo-izquierda {
     text-align: center;
     margin-top: 50px;
 }
+/*Fin del Carousel Noticias*/
+
+/*Inicio de estilos descripción y precio cards*/
+.div-desc-precio {
+    display: flex;
+    justify-content: space-between;
+}
+/*Fin de estilos descripción y precio cards*/
+
+
+/*Inicio del Carousel Home*/
+.SliderHome-container {
+  margin: 0 auto;
+  margin-top: 5%;
+  margin-bottom: -6%;
+  position: relative;
+  top: 0%;
+  left: 38%;
+  transform: translateX(-50%);
+  width: 80%;
+}
+/*Final del Carousel Home*/

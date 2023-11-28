@@ -11,10 +11,10 @@ SELECT * FROM mysql.user WHERE user = 'usuario_Proyecto';
 
 SELECT * FROM mysql.db WHERE user = 'usuario_Proyecto' AND db = 'tecnotopia';
 
-ALTER USER 'usuario_practica'@'localhost' IDENTIFIED BY 'la_Clave';
+ALTER USER 'usuario_Proyecto'@'%' IDENTIFIED BY 'Usuar1o_Clave.';
 -----------------------------------------------------------------------------------------------------------------
 /*Se asignan los prvilegios sobr ela base de datos TechShop al usuario creado */ -- TERCER PASO --
-grant all privileges on techshop.* to 'usuario_Proyecto'@'%';
+grant all privileges on tecnotopia.* to 'usuario_Proyecto'@'%';
 flush privileges;
 -----------------------------------------------------------------------------------------------------------------
 /* la tabla de categoria contiene categorias de productos*/ -- CUARTO PASO --
