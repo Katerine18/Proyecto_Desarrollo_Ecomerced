@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+    <head th:replace="~{layout/plantilla :: head}">
+        <link th:href="@{/css/estilos.css}" rel="stylesheet" type="text/css"/>
+        <title>Tecnotopia</title>
+    </head>
+</header>
+<body class="bodyhome">
+    <section th:fragment="registro-formulario" class="py-4 mb-4 custom-button-container">
+        <div class="wrapper">>
+            <form action="" class="form">
+                <h1 class="title">Registro</h1>
+                <div class="inp">
+                    <input type="text" name="" id="" class="input" placeholder="Nombre de usuario">
+                        <i class="fa-solid fa-user"></i>
+                </div>
+                <div class="inp">
+                    <input type="password" name="" id="" class="input" placeholder="Contraseña">
+                        <i class="fa-solid fa-lock"></i>
+                </div>
+                <div class="inp">
+                    <input type="password" name="" id="" class="input" placeholder="Confirmar contraseña">
+                        <i class="fa-solid fa-lock"></i>
+                </div>
+                <button class="submit-btn"><a a th:href="@{/inicio/listado}" class="link" >Registrarse</a></button>
+                <p class="footer" style="color: #01939c">¿Ya tienes una cuenta? <a href="http://localhost/Login/login" class="link">Iniciar Sesión</a></p>
+            </form>
+            <div></div>
+            <div class="banner">
+                <h1 class="wel_text" style="color: #01939c">Bienvenid@ a  </h1><br>
+                    <p class="para" style="color: #01939c">Tecnotopia donde encontraras todo a tu gusto</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

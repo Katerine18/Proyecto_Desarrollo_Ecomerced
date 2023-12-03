@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+    <head th:replace="~{layout/plantilla :: head}">
+        <link th:href="@{/css/estilos.css}" rel="stylesheet" type="text/css"/>
+        <title>Tecnotopia</title>
+    </head>
+    <body>
+        <!-- fragmentos-contactanos.html -->
+        <section th:fragment="caja-contactanos" class="py-4 mb-4 custom-button-container">
+            <div class="caja-contactanos">
+                <div class="columna-izquierda">
+                    <h3 class="text-title-contact">Contáctenos</h3>
+                    <br>
+                        <p class="text-contact">Tecnotopia es un nuevo ecommerce dedicado a la venta de artículos tecnológicos de última generación. Contamos con un amplio catálogo de laptops, periféricos, smartphones y más. Si tienes alguna pregunta o necesitas ayuda, no dudes en contactarnos.</p>
+                        <div class="div-icons-left">
+                            <span class="span-icons-contact-left"><i class="fa-solid fa-microchip" style="color: black;"></i></span>
+                            <span class="span-icons-contact-left"><i class="fa-solid fa-computer" style="color: black;"></i></span>
+                            <span class="span-icons-contact-left"><i class="fa-solid fa-mobile-screen-button" style="color: black;"></i></span>
+                            <span class="span-icons-contact-left"><i class="fa-sharp fa-solid fa-memory" style="color: black;"></i></span>
+                        </div>
+                </div>
+                <div class="columna-derecha">
+                    <h3 class="text-title-contact">Infomación de contacto</h3>
+                    <h3 class="text-subtitle-contact"><span class="span-icons-contact-right"><i class="fa-solid fa-location-dot" style="color: black;"></i></span>Dirección</h3>
+                    <h4 class="text-contact">Heredia Centro, Oficina #3</h4>
+                    <h3 class="text-subtitle-contact"><span class="span-icons-contact-right"><i class="fa-solid fa-clock" style="color: black;"></i></span>Horario de atención</h3>
+                    <h4 class="text-contact">Lunes a Viernes - 8:00 a.m a 5:00 p.m</h4>
+                    <h3 class="text-subtitle-contact"><span class="span-icons-contact-right"><i class="fa-solid fa-envelope" style="color: black;"></i></span>Correo electrónico</h3>
+                    <h4 class="text-contact">ventas@tecnotopia.cr</h4>
+                    <h3 class="text-subtitle-contact"><span class="span-icons-contact-right"><i class="fa-solid fa-phone" style="color: black;"></i></span>Teléfono</h3>
+                    <h4 class="text-contact">+506 2267-1808</h4>
+                </div>
+            </div>
+            </div>
+        </section>
+    </body>
+</html>

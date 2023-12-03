@@ -1,0 +1,473 @@
+/*Pagina Registro y login*/
+
+body {
+    background-image: url("https://images.pexels.com/photos/6156390/pexels-photo-6156390.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: "Open Sans", sans-serif;
+    color: #333333;
+}
+.cuadro-transparente {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 10px;
+    color:#01939c;
+    text-align:center;
+}
+
+/* Estilos para el contenedor de inicio de sesión */
+.wrapper {
+    max-width: 700px; /* Ajuste en el ancho */
+    margin: 150px auto 0 auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+}
+
+/* Estilos para los iconos */
+.fa-user, .fa-lock {
+    color: #01939c; /* Cambio de color del icono */
+}
+
+.form {
+    color: #01939c;
+    text-align:center;
+}
+
+.banner {
+    text-align: center;
+    margin-top: 30px;
+    color: #01939c;
+}
+/* Estilos para el botón de registro */
+button.submit-btn {
+    background-color: #e4f4fd;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+/* Estilos al pasar el cursor por encima */
+button.submit-btn:hover {
+    background-color: #cce2cb;
+    color: #000 !important;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+
+
+
+
+/* Transiciones */
+.carousel-transition {
+    transition: var(--carousel-transition);
+}
+
+/* Control de Carrusel */
+.carousel-control {
+    width: var(--carousel-control-width);
+    opacity: var(--carousel-control-opacity);
+    transition: var(--carousel-control-transition);
+}
+
+.carousel-control:hover {
+    opacity: var(--carousel-control-hover-opacity);
+}
+
+/* Indicadores de Carrusel */
+.carousel-indicator {
+    width: var(--carousel-indicator-width);
+    height: var(--carousel-indicator-height);
+
+}
+
+.carousel-indicator-active {
+    background-color: var(--carousel-indicator-active-bg);
+    opacity: var(--carousel-indicator-active-opacity);
+    transition: var(--carousel-indicator-transition);
+}
+
+/* Control de Carrusel Iconos */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-size: var(--carousel-control-icon-width);
+
+}
+
+
+/* Estilo CSS para el contenedor de imágenes */
+.image-container {
+    text-align: center;
+    padding-top: 100px;
+}
+
+/* Estilo CSS para las imágenes */
+.image-container img {
+    height: 300px;
+    margin: 0 10px;
+    display: inline;
+    background-color: transparent;
+    padding: 0;
+    border: none;
+}
+
+/*Pagina Home*/
+*{
+    margin: 0;
+    padding: 0;
+    color: #f2f5f7;
+    font-family: sans-serif;
+    letter-spacing: 1px;
+    font-weight: 300;
+}
+.bodyhome{
+    overflow-x: hidden;
+}
+/*Fin Pagina Home*/
+
+/*Navbar*/
+.navbar{
+    height: 4.5rem;
+    width: 100%;
+    background-color: #131418;
+    box-shadow: 0 3px 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    position: fixed;
+    z-index: 10;
+}
+
+.logo{
+    color:#01939c;
+    font-size:26px;
+    font-weight:bold;
+    letter-spacing: 1px;
+    margin-left: 50px;
+}
+
+.nav-links{
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    margin-left: -4%;
+    margin-top: 15px;
+}
+.nav-links li a{
+    text-decoration: none;
+    margin: 0 0.7vw;
+    margin-left: 15px;
+}
+.nav-links li a:hover {
+    color: #61DAFB;
+}
+.nav-links li {
+    position: relative;
+}
+.nav-links li a:hover::before{
+    width: 80%;
+}
+/*Fin Navbar*/
+
+/*Login Button*/
+.login-button{
+    background-color: transparent;
+    border: 1.5px solid #A3E4D7;
+    border-radius: 2em;
+    padding: 0.6rem 0.8rem;
+    margin-right: 60px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+.login-button:hover {
+    color: #131418;
+    background-color: #A3E4D7;
+    border:1.5px solid #A3E4D7;
+    transition: all ease-in-out 350ms;
+}
+.join-button{
+    color: #131418;
+    background-color: #A3E4D7;
+    border: 1.5px solid #A3E4D7;
+    border-radius: 2em;
+    padding: 0.6rem 0.8rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+.join-button:hover {
+    color: #A3E4D7;
+    background-color: transparent;
+    border:1.5px solid #A3E4D7;
+    transition: all ease-in-out 350ms;
+}
+/*Fin Login Button*/
+
+@media screen and (max-width: 800px){
+    .navbar{
+        position: fixed;
+        z-index: 3;
+    }
+    .Divshome{
+        display:block;
+        position: absolute;
+        cursor: pointer;
+        right: 5%;
+        top: 50%;
+        transform: translate(-5%, -50%);
+        z-index: 2;
+        transition: all 0.7s ease;
+    }
+    .nav-links{
+        position: fixed;
+        background: #131418;
+        height: 100;
+        width: 100%;
+        flex-direction: column;
+        clip-path: circle(50px at 90% -20%);
+        -webkit-clip-path: circle(50px at 90% -10%);
+        transition: all 1s ease-out;
+        pointer-events: none;
+    }
+    .nav-links.open{
+        clip-path: circle(1000px at 90% -10%);
+        -webkit-clip-path: circle(1000px at 90% -10%);
+        pointer-events: all;
+    }
+    .nav-links li{
+        opacity: 0;
+    }
+    .nav-links li:nth-child(1){
+        transition: all 0.5s ease 0.2s;
+    }
+    .nav-links li:nth-child(2){
+        transition: all 0.5s ease 0.4s;
+    }
+    .nav-links li:nth-child(3){
+        transition: all 0.5s ease 0.6s;
+    }
+    .nav-links li:nth-child(4){
+        transition: all 0.5s ease 0.7s;
+    }
+    .nav-links li:nth-child(5){
+        transition: all 0.5s ease 0.8s;
+    }
+    .nav-links li:nth-child(6){
+        transition: all 0.5s ease 0.9s;
+        margin: 0;
+    }
+    .nav-links li:nth-child(7){
+        transition: all 0.5s ease 1s;
+        margin: 0;
+    }
+    li.fade{
+        opacity: 1;
+    }
+}
+
+.toggle .line1{
+    transform: rotate(-45deg) translate(-5px,6px);
+}
+.toggle .line2{
+    transition: all 0.7s ease;
+    width:0;
+}
+.toggle .line3{
+    transform: rotate(45deg) translate(-5px,-6px);
+}
+
+/*Contactanos*/
+.caja-contactanos {
+    background: #FFFFFF;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 500px;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.columna-izquierda, .columna-derecha {
+    flex-grow: 1;
+    flex-shrink: 1;
+    padding: 5%;
+}
+
+.columna-izquierda {
+    width: 50%;
+}
+
+.columna-derecha {
+    width: 50%;
+}
+
+.text-title-contact {
+    color: white;
+    font-size: 20px; /* Tamaño de fuente más pequeño */
+    font-style: bold;
+    text-align: center;
+    margin-top: -2%;
+    background-color: #3b5998;
+    border-radius: 0.7rem;
+    padding: 0.5rem;
+}
+
+.text-subtitle-contact {
+    color: black;
+    font-size: 15px; /* Tamaño de fuente más pequeño */
+    text-align: left;
+    margin-top: 6%;
+}
+
+.text-contact {
+    color: black;
+    font-size: 15px; /* Tamaño de fuente más pequeño */
+    text-align: left;
+}
+
+.span-icons-contact-right {
+    margin-right: 2%;
+    font-size: 25px;
+}
+
+.span-icons-contact-left {
+    font-size: 45px; /* Tamaño de fuente más pequeño */
+    margin: 6%;
+}
+
+.div-icons-left {
+    padding-top: 15%;
+}
+
+@media (min-width: 400px) and (max-width: 900px) {
+    .caja-contactanos {
+        width: 25rem;
+        height: auto;
+        flex-direction: column;
+        text-align: center;
+        padding-right: 6%;
+    }
+
+    .columna-izquierda, .columna-derecha {
+        flex-grow: 0;
+        flex-shrink: 0;
+        width: 100%;
+        padding: 5%;
+    }
+
+    .div-icons-left {
+        padding-top: 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .span-icons-contact-left {
+        padding-top: 5%;
+        margin: 0 6%;
+    }
+}
+
+@media (min-width: 0px) and (max-width: 400px) {
+    .caja-contactanos {
+        width: 15rem;
+        height: auto;
+        flex-direction: column;
+        text-align: center;
+        padding-right: 10%;
+    }
+
+    .columna-izquierda, .columna-derecha {
+        flex-grow: 0;
+        flex-shrink: 0;
+        width: 100%;
+        padding: 5%;
+    }
+
+    .div-icons-left {
+        padding-top: 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .span-icons-contact-left {
+        padding-top: 5%;
+        margin: 0 6%;
+    }
+}
+
+/*Inicio del Carousel Noticias*/
+
+.Noticias-container {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+}
+
+.carousel-inner {
+    border-radius: 30px
+}
+
+.carousel-inner img {
+    height: 500px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 30px
+}
+
+.Noticias-header h2 {
+    color: white;
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: -50px;
+}
+
+.Noticias-footer p {
+    color: black;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 50px;
+    text-shadow: 0 0 5px cyan, 0 0 10px cyan, 0 0 15px cyan;
+}
+
+
+.Noticias-footer p2 {
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 50px;
+}
+/*Fin del Carousel Noticias*/
+
+/*Inicio de estilos descripción y precio cards*/
+.div-desc-precio {
+    display: flex;
+    justify-content: space-between;
+}
+/*Fin de estilos descripción y precio cards*/
+
+
+/*Inicio del Carousel Home*/
+.SliderHome-container {
+    margin: 0 auto;
+    margin-top: 5%;
+    margin-bottom: -6%;
+    position: relative;
+    top: 0%;
+    left: 38%;
+    transform: translateX(-50%);
+    width: 80%;
+}
+/*Final del Carousel Home*/
