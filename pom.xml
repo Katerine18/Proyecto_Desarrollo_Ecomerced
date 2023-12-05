@@ -11,7 +11,7 @@
     <groupId>com.Tienda_Proyecto</groupId>
     <artifactId>proyecto</artifactId>
     <version>1</version>
-    <name>proyecto</name>
+    <name>proyectoBackUp</name>
     <description>Proyecto Tecnotopia</description>
     <properties>
         <java.version>20</java.version>

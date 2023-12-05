@@ -26,7 +26,6 @@
                 </ul>
             </div>
         </section>-->
-
         <section th:fragment="SliderHome-container" class="py-4 mb-4 custom-button-container">
             <div class="SliderHome-container">
                 <div th:fragment="imagen-slider" class="carousel-container">
@@ -39,12 +38,12 @@
                         </div>
                         <div class="carousel-inner" style="height: 200px">
                             <div class="carousel-item active">
-                                <img src="https://images.pexels.com/photos/1714208/pexels-photo-1714208.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
-                                     class="d-block w-100" alt="Encuentra aquí todo lo necesario para tu Set-Up Gamer, nuevos productos para que lo equipes a tu manera.">
+                                <img src="https://i.ytimg.com/vi/_ITiwPMUzho/maxresdefault.jpg" 
+                                     class="d-block w-100" alt="1">
                             </div>
                             <div class="carousel-item">
-                                <img src="https://i0.wp.com/insider-gaming.com/wp-content/uploads/2023/05/gta-6-1.jpg?fit=1920%2C1080&ssl=1" 
-                                     class="d-block w-100" alt="Los mejores videojuegos al mejor precio solo en tecnotopia">
+                                <img src="https://i.ytimg.com/vi/tOfVev1-onU/maxresdefault.jpg" 
+                                     class="d-block w-100" alt="2">
                             </div>
                             <!-- Agregar más elementos al carousel-item con imágenes -->
                         </div>
@@ -62,7 +61,6 @@
                 <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
                 <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
         </section>
-
         <!-- 2 Sección principal para mostrar la informaccion de los productos seleccionados -->
         <section th:fragment="listadoProductos">
             <div class="container" style="width: 2000px">
@@ -116,7 +114,6 @@
                 </div>
             </div>
         </section>
-
         <!-- 3 Sección principal para hacer filtros de productos -->
         <section th:fragment="filtros">
             <div class="row py-4">
@@ -150,7 +147,6 @@
                         </form>
                     </div> 
                 </div>
-
                 <div class="col-md-3">
                     <div class="card">
                         <form method="post" th:action="@{/inicio/query2}">
@@ -163,27 +159,12 @@
                                            name="precioInf" 
                                            required="true"/>
                                 </div>
-                                <div class="mb-3">
-                                    <label for="precioSup">[[#{inicio.precio.superior}]]</label>
-                                    <input type="number" 
-                                           class="form-control"
-                                           th:value="${precioSup}"
-                                           name="precioSup"
-                                           required="true"/>
-                                </div>
-                                <div class="mb-3 text-center">
-                                    <button type="submit"
-                                            class="btn btn-primary">
-                                        <i class="fas fa-check"></i> [[#{inicio.ampliadas}]]
-                                    </button>
-                                </div>
-                            </div>
                         </form>
                     </div> 
                 </div>  
-
             </div>
         </section>
-
+        <div>TODO write content</div>
     </body>
+</html>
 </html>

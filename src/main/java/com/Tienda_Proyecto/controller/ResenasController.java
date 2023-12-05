@@ -13,8 +13,8 @@ import org.springframework.web.multipart.MultipartFile;
 import com.Tienda_Proyecto.service.CategoriaService;
 
 @Controller
-@RequestMapping("/categoria")
-public class CategoriaController {
+@RequestMapping("/Reseñas")
+public class ResenasController {
 
     @Autowired
     private CategoriaService categoriaService;
@@ -24,12 +24,12 @@ public class CategoriaController {
         var categorias = categoriaService.getCategorias(false);
         model.addAttribute("categorias", categorias);
         model.addAttribute("totalCategorias", categorias.size());
-        return "/categoria/listado";
+        return "/Reseñas/listado";
     }
 
     @GetMapping("/nuevo")
     public String categoriaNuevo(Categoria categoria) {
-        return "/categoria/modifica";
+        return "/Reseñas/modifica";
     }
 
     @Autowired
@@ -43,23 +43,23 @@ public class CategoriaController {
             categoria.setRutaImagen(
                     firebaseStorageService.cargaImagen(
                             imagenFile,
-                            "categoria",
+                            "Reseñas",
                             categoria.getIdCategoria()));
         }
         categoriaService.save(categoria);
-        return "redirect:/categoria/listado";
+        return "redirect:/Reseñas/listado";
     }
 
     @GetMapping("/eliminar/{idCategoria}")
     public String categoriaEliminar(Categoria categoria) {
         categoriaService.delete(categoria);
-        return "redirect:/categoria/listado";
+        return "redirect:/Reseñas/listado";
     }
 
     @GetMapping("/modificar/{idCategoria}")
     public String categoriaModificar(Categoria categoria, Model model) {
         categoria = categoriaService.getCategoria(categoria);
         model.addAttribute("categoria", categoria);
-        return "/categoria/modifica";
+        return "/Reseñas/modifica";
     }
 }

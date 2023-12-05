@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+    <head th:replace="~{layout/plantilla :: head}">
+        <link th:href="@{/css/estilos.css}" rel="stylesheet" type="text/css"/>
+        <title>Tecnotopia</title>
+    </head>
+    <body>
+        <section th:fragment="SliderHome-container" class="py-4 mb-4 custom-button-container">
+            <div class="SliderHome-container">
+                <div th:fragment="imagen-slider" class="carousel-container">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            <!-- Agregar más botones de indicadores según sea necesario -->
+                        </div>
+                        <div class="carousel-inner" style="height: 200px">
+                            <div class="carousel-item active">
+                                <img src="https://th.bing.com/th/id/OIP.GSnO2Eie9NtsS83kIh-67QHaEK?w=297&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" 
+                                     class="d-block w-100" alt="1">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://th.bing.com/th/id/R.1936e97eac1f96d1784f32ae7caf0f07?rik=ofo5GjPiNR9QUA&pid=ImgRaw&r=0" 
+                                     class="d-block w-100" alt="2">
+                            </div>
+                            <!-- Agregar más elementos al carousel-item con imágenes -->
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+                <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+                <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+                <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+        </section>
+        <!-- 2 Sección principal para mostrar la información de los productos seleccionados -->
+        <section th:fragment="listadoJuegos">
+            <div class="container" style="width: 2000px">
+                <div class="row">
+                    <div th:if="${juegos != null and not #lists.isEmpty(juegos)}" style="margin-top: 100px">
+                        <div class="row row-cols-4">
+                            <div class="card" th:each="juego : ${juegos}" style="margin: 40px 40px 40px 40px">
+                                <figure>
+                                    <img th:src="${juego.rutaImagen}" style="margin-top: 10px; border-radius: 10px"
+                                         class="card-img-top"
+                                         height="200"
+                                         alt="...">
+                                </figure>
+                                <div class="card-header">
+                                    <h5 class="card-title" style="color: black !important" th:text="${juego.descripcion}"></h5>
+                                </div>
+                                <div class="card-body">
+                                    <!-- Button trigger modal -->
+                                    <div class="div-desc-precio">
+                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalJuego_[[${juego.idProducto}]]">
+                                            Descripción
+                                        </button>
+                                        <figcaption style="color: black; margin-top: 10px !important" th:text="|₡${juego.precio} ('${juego.existencias} uds')|"></figcaption>
+                                    </div>
+                                    <!-- Modal -->
+                                    <div class="modal fade" th:id="'modalJuego_'+${juego.idProducto}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="'modalJuegoLabel_'+${juego.idProducto}" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5" th:text="${juego.descripcion}" th:id="'modalJuegoLabel_'+${juego.idProducto}" style="color: black"></h1>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body" th:text="${juego.detalle}" style="color: black"></div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center p-2" th:if="${juegos == null or #lists.isEmpty(juegos)}">
+                        <span>[[#{lista.vacia}]]</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </body>
+</html>

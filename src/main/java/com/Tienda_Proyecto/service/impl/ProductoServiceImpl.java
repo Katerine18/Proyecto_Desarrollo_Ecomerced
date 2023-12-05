@@ -1,12 +1,12 @@
 package com.Tienda_Proyecto.service.impl;
 
-import com.Tienda_Proyecto.dao.ProductoDao;
-import com.Tienda_Proyecto.domain.Producto;
-import com.Tienda_Proyecto.service.ProductoService;
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import com.Tienda_Proyecto.domain.Producto;
+import com.Tienda_Proyecto.dao.ProductoDao;
+import com.Tienda_Proyecto.service.ProductoService;
+import java.util.List;
 
 @Service
 public class ProductoServiceImpl implements ProductoService {
@@ -17,8 +17,7 @@ public class ProductoServiceImpl implements ProductoService {
     @Override
     @Transactional(readOnly = true)
     public List<Producto> getProductos(boolean activo) {
-        var productos = productoDao.findAll();
-        return productos;
+        return productoDao.findAll();
     }
 
     @Override
@@ -39,13 +38,17 @@ public class ProductoServiceImpl implements ProductoService {
         productoDao.delete(producto);
     }
     
-    //Ejemplo de una consulta con un Query
-    public List<Producto> consultaQuery(double precioInf, double precioSup){
-            return productoDao.findByPrecioBetweenOrderByDescripcion(precioInf, precioSup);
-            }
+    // Ejemplo de una consulta con un Query
+    @Override
+    @Transactional(readOnly = true)
+    public List<Producto> consultaQuery(double precioInf, double precioSup) {
+        return productoDao.findByPrecioBetweenOrderByDescripcion(precioInf, precioSup);
+    }
     
-    //Ejemplo de una consulta con un Query
-    public List<Producto> consultaJPQL(double precioInf, double precioSup){
-            return productoDao.consultaJPQL(precioInf, precioSup);
-            }
+    // Ejemplo de una consulta con un Query
+    @Override
+    @Transactional(readOnly = true)
+    public List<Producto> consultaJPQL(double precioInf, double precioSup) {
+        return productoDao.consultaJPQL(precioInf, precioSup);
+    }
 }

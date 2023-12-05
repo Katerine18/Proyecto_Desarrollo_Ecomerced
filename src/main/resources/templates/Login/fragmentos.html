@@ -10,23 +10,23 @@
         <section th:fragment="inicio_sesion" class="py-4 mb-4 custom-button-container">
             <div class="wrapper">
                 <form action="" class="form">
-                    <h1 class="title">Inicio</h1>
-                    <div class="inp">
-                        <input type="text" name="" id="" class="input" placeholder="usuario">
-                        <i class="fa-solid fa-user"></i>
-                    </div>
-                    <div class="inp">
-                        <input type="password" name="" id="" class="input" placeholder="contraseña">
-                        <i class="fa-solid fa-lock"></i>
-                    </div>
-                    <button class="submit mover-abajo-izquierda">Iniciar sesión</button>
-                    <button class="mover-registro">Registro</button>
-                    <p class="footer">¿No tienes cuenta?  <a href="#" class="link">Por favor, Regístrate</a></p>   
+                    <form action="" class="form">
+                        <h1 class="title">Inicio de Sesion</h1>
+                        <div class="inp">
+                            <input type="text" name="" id="" class="input" placeholder="usuario">
+                                <i class="fa-solid fa-user"></i>
+                        </div>
+                        <div class="inp">
+                            <input type="password" name="" id="" class="input" placeholder="contraseña">
+                                <i class="fa-solid fa-lock"></i>
+                        </div>
+                        <button class="submit-btn" style="color: #01939c"><a a th:href="@{/inicio/listado}" class="link">Iniciar sesión</a></button>
+                        <p class="footer" style="color: #01939c">¿No tienes cuenta?  <a a th:href="@{Registro/Registro}" class="link">Por favor, Regístrate</a></p>   
+                    </form>
                 </form>
-                <div></div>
                 <div class="banner">
-                    <h1 class="wel_text">Bienvenid@</h1><br>
-                    <p class="para"></p>
+                    <h1 class="wel_text">Bienvenid@</h1>
+                    <p class="para" style="color: #01939c">Encuentra todo lo que deseas en Tecnotopia</p>
                 </div>
             </div>
         </section>
