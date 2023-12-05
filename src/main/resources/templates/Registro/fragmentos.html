@@ -6,10 +6,8 @@
         <link th:href="@{/css/estilos.css}" rel="stylesheet" type="text/css"/>
         <title>Tecnotopia</title>
     </head>
-</header>
-<body class="bodyhome">
-    <section th:fragment="registro-formulario" class="py-4 mb-4 custom-button-container">
-        <div class="wrapper">>
+    <body>
+        <div th:fragment="registro-formulario">
             <form action="" class="form">
                 <h1 class="title">Registro</h1>
                 <div class="inp">
@@ -24,15 +22,14 @@
                     <input type="password" name="" id="" class="input" placeholder="Confirmar contraseña">
                         <i class="fa-solid fa-lock"></i>
                 </div>
-                <button class="submit-btn"><a a th:href="@{/inicio/listado}" class="link" >Registrarse</a></button>
-                <p class="footer" style="color: #01939c">¿Ya tienes una cuenta? <a href="http://localhost/Login/login" class="link">Iniciar Sesión</a></p>
+                <button class="submit">Registrarse</button>
+                <p class="footer">¿Ya tienes una cuenta? <a href="#" class="link">Iniciar Sesión</a></p>
             </form>
             <div></div>
             <div class="banner">
-                <h1 class="wel_text" style="color: #01939c">Bienvenid@ a  </h1><br>
-                    <p class="para" style="color: #01939c">Tecnotopia donde encontraras todo a tu gusto</p>
+                <h1 class="wel_text">Bienvenid@</h1><br>
+                    <p class="para"></p>
             </div>
         </div>
-    </section>
-</body>
+    </body>
 </html>

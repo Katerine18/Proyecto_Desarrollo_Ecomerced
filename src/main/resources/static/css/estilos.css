@@ -8,61 +8,113 @@ body {
     font-family: "Open Sans", sans-serif;
     color: #333333;
 }
-.cuadro-transparente {
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 20px;
-    width: 90%;
-    margin: 0 auto;
-    border-radius: 10px;
-    color:#01939c;
-    text-align:center;
-}
 
-/* Estilos para el contenedor de inicio de sesión */
-.wrapper {
-    max-width: 700px; /* Ajuste en el ancho */
-    margin: 150px auto 0 auto;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-
-}
-
-/* Estilos para los iconos */
-.fa-user, .fa-lock {
-    color: #01939c; /* Cambio de color del icono */
-}
-
-.form {
-    color: #01939c;
-    text-align:center;
-}
-
-.banner {
-    text-align: center;
-    margin-top: 30px;
-    color: #01939c;
-}
-/* Estilos para el botón de registro */
-button.submit-btn {
-    background-color: #e4f4fd;
+/* Estilo personalizado para el botón de inicio de sesión */
+button.mover-abajo-izquierda {
+    background-color: #333333;
+    color: white;
     border: none;
     border-radius: 10px;
     padding: 10px 20px;
-    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
-    cursor: pointer;
+    position: absolute;
+    left: 1150px;
+    top: 82px; /* Mover hacia abajo */
+}
+button.mover-registro {
+    background-color: #333333;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    position: absolute;
+    left: 980px;
+    top: 82px; /* Mover hacia abajo */
 }
 
-/* Estilos al pasar el cursor por encima */
-button.submit-btn:hover {
-    background-color: #cce2cb;
-    color: #000 !important;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+/* Estilos para los checkbox personalizados */
+label {
+    display: block;
+    position: relative;
+    margin-left: 30px;
+    color: black;
 }
 
+label::before {
+    content: '';
+    position: absolute;
+    font-family: FontAwesome;
+    border-radius: 4px;
+    color: transparent;
+}
 
+label:hover::before {
+    content: '';
+    color: transparent;
+    background: transparent;
+}
 
+label span.texto-checkbox {
+    display: inline-block;
+    height: auto;
+    position: relative;
+    transition: all 0.2s linear;
+    color: black;
+}
+
+/*Fin Pagina Registro y login*/
+
+/* Variables */
+:root {
+    --carousel-control-color:             #ffffff;
+    --white:                             #ffffff;
+    --carousel-control-width:            15%;
+    --carousel-control-opacity:          0.5;
+    --carousel-control-hover-opacity:    0.9;
+    --carousel-control-transition:       opacity 0.15s ease;
+
+    --carousel-indicator-width:          30px;
+    --carousel-indicator-height:         3px;
+    --carousel-indicator-hit-area-height:10px;
+    --carousel-indicator-spacer:         3px;
+    --carousel-indicator-opacity:        0.5;
+    --carousel-indicator-active-bg:      #ffffff;
+    --carousel-indicator-active-opacity: 1;
+    --carousel-indicator-transition:     opacity 0.6s ease;
+
+    --carousel-caption-width:            70%;
+    --carousel-caption-color:            #ffffff;
+    --carousel-caption-padding-y:        1.25rem;
+    --carousel-caption-spacer:           1.25rem;
+
+    --carousel-control-icon-width:       2rem;
+
+    --carousel-control-next-icon-bg:     url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$carousel-control-color}'><path d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/></svg>");
+
+    --carousel-transition-duration:      0.6s;
+    --carousel-transition:               transform var(--carousel-transition-duration) ease-in-out;
+}
+
+/* Styles */
+body {
+    background-image: url("https://images.pexels.com/photos/6156390/pexels-photo-6156390.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: "Open Sans", sans-serif;
+    color: #333333;
+}
+
+/* Estilo personalizado para el botón de inicio de sesión */
+button.mover-abajo-izquierda {
+    background-color: #333333;
+    color: var(--white);
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    position: absolute;
+    left: 1150px;
+    top: 82px; /* Mover hacia abajo */
+}
 
 
 /* Transiciones */
@@ -416,14 +468,14 @@ button.submit-btn:hover {
 }
 
 .carousel-inner {
-    border-radius: 30px
+  border-radius: 30px
 }
 
 .carousel-inner img {
-    height: 500px;
-    width: 100%;
-    object-fit: cover;
-    border-radius: 30px
+  height: 500px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 30px
 }
 
 .Noticias-header h2 {
@@ -448,13 +500,13 @@ button.submit-btn:hover {
 
 /*Inicio del Carousel Home*/
 .SliderHome-container {
-    margin: 0 auto;
-    margin-top: 5%;
-    margin-bottom: -6%;
-    position: relative;
-    top: 0%;
-    left: 38%;
-    transform: translateX(-50%);
-    width: 80%;
+  margin: 0 auto;
+  margin-top: 5%;
+  margin-bottom: -6%;
+  position: relative;
+  top: 0%;
+  left: 38%;
+  transform: translateX(-50%);
+  width: 80%;
 }
 /*Final del Carousel Home*/

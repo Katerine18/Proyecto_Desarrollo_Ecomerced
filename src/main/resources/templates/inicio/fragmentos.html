@@ -26,6 +26,7 @@
                 </ul>
             </div>
         </section>-->
+
         <section th:fragment="SliderHome-container" class="py-4 mb-4 custom-button-container">
             <div class="SliderHome-container">
                 <div th:fragment="imagen-slider" class="carousel-container">
@@ -61,6 +62,7 @@
                 <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
                 <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
         </section>
+
         <!-- 2 Sección principal para mostrar la informaccion de los productos seleccionados -->
         <section th:fragment="listadoProductos">
             <div class="container" style="width: 2000px">
@@ -114,6 +116,7 @@
                 </div>
             </div>
         </section>
+
         <!-- 3 Sección principal para hacer filtros de productos -->
         <section th:fragment="filtros">
             <div class="row py-4">
@@ -147,6 +150,7 @@
                         </form>
                     </div> 
                 </div>
+
                 <div class="col-md-3">
                     <div class="card">
                         <form method="post" th:action="@{/inicio/query2}">
@@ -159,12 +163,27 @@
                                            name="precioInf" 
                                            required="true"/>
                                 </div>
+                                <div class="mb-3">
+                                    <label for="precioSup">[[#{inicio.precio.superior}]]</label>
+                                    <input type="number" 
+                                           class="form-control"
+                                           th:value="${precioSup}"
+                                           name="precioSup"
+                                           required="true"/>
+                                </div>
+                                <div class="mb-3 text-center">
+                                    <button type="submit"
+                                            class="btn btn-primary">
+                                        <i class="fas fa-check"></i> [[#{inicio.ampliadas}]]
+                                    </button>
+                                </div>
+                            </div>
                         </form>
                     </div> 
                 </div>  
+
             </div>
         </section>
-        <div>TODO write content</div>
+
     </body>
-</html>
 </html>

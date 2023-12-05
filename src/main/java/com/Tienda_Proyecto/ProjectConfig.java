@@ -40,8 +40,6 @@ public class ProjectConfig implements WebMvcConfigurer {
         registry.addViewController("/Contactanos/Contactanos").setViewName("/Contactanos/Contactanos");
         registry.addViewController("/Noticias/Noticias").setViewName("/Noticias/Noticias");
         registry.addViewController("/producto/listado").setViewName("/producto/listado");
-        registry.addViewController("/Login/login").setViewName("/Login/login");
-        registry.addViewController("/Registro/registro").setViewName("/Registro/registro");
     }
 
 }
