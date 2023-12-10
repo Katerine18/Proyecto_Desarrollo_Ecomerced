@@ -471,3 +471,22 @@ button.submit-btn:hover {
     width: 80%;
 }
 /*Final del Carousel Home*/
+
+/*Inicio del Login*/
+.inputUsuario {
+    color: black;
+}
+
+.inputPassword {
+    color: black;
+}
+
+.inpUsuarioDiv {
+    margin: 10px;
+}
+
+.submit-btn {
+    margin: 10px;
+}
+
+/*Fin del Login*/
