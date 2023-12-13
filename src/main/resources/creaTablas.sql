@@ -44,18 +44,17 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
 -----------------------------------------------------------------------------------------------------------------
 /* la tabla de juegos */
-create table tecnotopia.juegos (
+CREATE TABLE tecnotopia.juegos (
   id_juego INT NOT NULL AUTO_INCREMENT,
-  descripcion VARCHAR(30) NOT NULL,  
-  detalle VARCHAR(1600) NOT NULL, 
-  precio double,
-  existencias int,  
-  ruta_imagen varchar(1024),
-  activo bool,
-  PRIMARY KEY (id_juego),  
-)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4;
+  descripcion VARCHAR(50) NOT NULL,
+  detalle TEXT NOT NULL,
+  precio DECIMAL(10, 2),
+  existencias INT,
+  ruta_imagen VARCHAR(1024),
+  activo BOOLEAN,
+  PRIMARY KEY (id_juego)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 -----------------------------------------------------------------------------------------------------------------
 /*Se crea la tabla de clientes llamada cliente... igual que la clase Cliente */ -- OMITIR DE MOMENTO --
 CREATE TABLE tecnotopia.usuario (
@@ -100,12 +99,12 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
 -----------------------------------------------------------------------------------------------------------------
 -- Reseñas
-create table tecnotopia.Reseñas (
-  id_Reseñas  INT NOT NULL AUTO_INCREMENT,
-  Reseñas VARCHAR(100) NOT NULL,
-  PRIMARY KEY (id_categoria))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4;
+CREATE TABLE tecnotopia.Resenas (
+  id_Resenas INT NOT NULL AUTO_INCREMENT,
+  Resena VARCHAR(100) NOT NULL,
+  PRIMARY KEY (id_Resenas)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 -----------------------------------------------------------------------------------------------------------------
 /*Se insertan 3 registros en la tabla cliente como ejemplo */ -- OMITIR DE MOMENTO --
 INSERT INTO tecnotopia.usuario (id_usuario, username,password,nombre, apellidos, correo, telefono,ruta_imagen,activo) VALUES 
@@ -185,6 +184,6 @@ insert into tecnotopia.rol (id_rol, nombre, id_usuario) values
  (6,'ROLE_USER',3);
  -----------------------------------------------------------------------------------------------------------------
 /*Se insertan 4 productos por categoria */ -- SEPTIMO PASO --
-INSERT INTO tecnotopia.juegos (id_juego,descripcion,detalle,precio,existencias,ruta_imagen,activo) VALUES
-(1,1,'Valorant','Lorem ipsum dolor sit amet consectetur adipiscing elit iaculis, ullamcorper in fringilla eu cras tempor mi. Luctus blandit sapien mauris vestibulum consequat mattis taciti aliquam ullamcorper, sagittis suscipit etiam urna convallis interdum tempor bibendum, ultricies habitant viverra natoque dictum posuere senectus volutpat. Cum ad vehicula condimentum nunc lacus nec tellus eleifend, a platea curae nullam sollicitudin nibh class cursus taciti, posuere purus inceptos facilisis cubilia suspendisse ut.',3500,5,'https://th.bing.com/th/id/OIP.LcdBKKftQZ6Xum4FGSxP2gHaEK?w=270&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',true),
-(2,1,'Fornite','Quisque in ridiculus scelerisque platea accumsan libero sem vel, mi cras metus cubilia tempor conubia fermentum volutpat gravida, maecenas semper sodales potenti turpis enim dapibus. Volutpat accumsan vivamus dignissim blandit vel eget posuere donec id, tempus sagittis aliquam erat luctus ornare aptent cubilia aliquet proin, ultrices ante pretium gravida sed vitae vestibulum aenean. Eleifend nascetur conubia ornare purus a eget at metus est risus natoque, elementum dis vulputate sociosqu integer ut ad nisl dui molestie.',2000,2,'https://th.bing.com/th/id/OIP.tv8ceBpnA5JG2iWAvut6AwHaEK?w=788&h=443&rs=1&pid=ImgDetMain',true),
+INSERT INTO tecnotopia.juegos (id_juego, descripcion, detalle, precio, existencias, ruta_imagen, activo) VALUES
+(1, 'Valorant', 'Lorem ipsum dolor sit amet consectetur adipiscing elit iaculis, ullamcorper in fringilla eu cras tempor mi. Luctus blandit sapien mauris vestibulum consequat mattis taciti aliquam ullamcorper, sagittis suscipit etiam urna convallis interdum tempor bibendum, ultricies habitant viverra natoque dictum posuere senectus volutpat. Cum ad vehicula condimentum nunc lacus nec tellus eleifend, a platea curae nullam sollicitudin nibh class cursus taciti, posuere purus inceptos facilisis cubilia suspendisse ut.', 3500, 5, 'https://th.bing.com/th/id/OIP.LcdBKKftQZ6Xum4FGSxP2gHaEK?w=270&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7', true),
+(2, 'Fortnite', 'Quisque in ridiculus scelerisque platea accumsan libero sem vel, mi cras metus cubilia tempor conubia fermentum volutpat gravida, maecenas semper sodales potenti turpis enim dapibus. Volutpat accumsan vivamus dignissim blandit vel eget posuere donec id, tempus sagittis aliquam erat luctus ornare aptent cubilia aliquet proin, ultrices ante pretium gravida sed vitae vestibulum aenean. Eleifend nascetur conubia ornare purus a eget at metus est risus natoque, elementum dis vulputate sociosqu integer ut ad nisl dui molestie.', 2000, 2, 'https://th.bing.com/th/id/OIP.tv8ceBpnA5JG2iWAvut6AwHaEK?w=788&h=443&rs=1&pid=ImgDetMain', true);
