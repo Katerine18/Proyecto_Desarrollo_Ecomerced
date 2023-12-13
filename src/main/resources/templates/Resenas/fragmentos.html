@@ -10,21 +10,21 @@
         <section th:fragment="botonesAgregar" class="py-4 mb-4 bg-light">
             <div class="container">
                 <div class="row">
-                    <div>   
+                    <div class="col-md-3">   
                         <button 
                             type="button"
                             class="btn btn-primary btn-block" 
                             data-bs-toggle="modal" 
-                            data-bs-target="#agregarCategoria">
-                            <i class="fas fa-plus"></i> [[#{categoria.agregar}]]
+                            data-bs-target="#agregarResenas">
+                            <i class="fas fa-plus"></i> [[#{resenas.agregar}]]
                         </button>
                     </div>
                 </div>
             </div>
-        </section>-->
+        </section>
 
-        <section th:fragment="agregarCategoria">
-            <div id="agregarCategoria" 
+        <section th:fragment="agregarResenas">
+            <div id="agregarResenas" 
                  class="modal fade" 
                  tabindex="-1" 
                  aria-labelledby="exampleModalLabel" 
@@ -32,15 +32,15 @@
                 <div class="modal-dialog modal-md">
                     <div class="modal-content">
                         <div class="modal-header bg-info text-white">
-                            <h5 class="modal-title">[[#{categoria.agregar}]]</h5>
+                            <h5 class="modal-title">[[#{resenas.agregar}]]</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div> 
-                        <form th:action="@{/categoria/guardar}" th:object="${categoria}"
+                        <form th:action="@{/Resenas/guardar}" th:object="${resenas}"
                               method="POST" class="was-validated" enctype="multipart/form-data">
                             <div class="modal-body">
                                 <div class="mb-3">
-                                    <label for="descripcion">[[#{categoria.descripcion}]]</label>
-                                    <input type="text" class="form-control" name="descripcion" required="true"/>
+                                    <label for="resenasD">[[#{resenas.resenasD}]]</label>
+                                    <input type="text" class="form-control" name="resenasD" required="true"/>
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -55,40 +55,31 @@
         <!-- Resto del código permanece igual -->
 
 
-        <!-- 3 Sección principal para mostrar la informaccion de la entidad categoria -->
-        <section th:fragment="listadoCategorias" id="categorias">
+        <!-- 3 Sección principal para mostrar la informaccion de la entidad resenas -->
+        <section th:fragment="listadoResenas" id="resenas">
             <div class="container">
                 <div class="row">
                     <div class="col-md-9" style="margin-top: 120px">
                         <div class="card">
                             <div class="card-header">
-                                <h4>[[#{categoria.listado}]]</h4>
+                                <h4>[[#{resenas.listado}]]</h4>
                             </div>
-                            <div th:if="${categorias != null and !categorias.empty}">
+                            <div th:if="${resenas != null and !resenas.empty}">
                                 <table class="table table-striped table-hover">
-                                    <thead class="table-dark">
-                                        <tr><th>#</th>
-                                            <th>[[#{categoria.descripcion}]]</th>
-                                            <th></th>
-                                            <th></th>
+                                    <thead class="table-white">                                     
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr th:each="categoria, contador : ${categorias}">
-                                            <td>[[${contador.count}]]</td>
-                                            <td>[[${categoria.descripcion}]]</td>
-                                            <td th:text="${categoria.activo} ? 'Activa' : 'Inactiva'" />
+                                        <tr th:each="resenas, contador : ${resenas}">
+                                            <td>[[${resenas.resenasD}]]</td>
                                             <td>
-                                                <a th:href="@{/categoria/eliminar/}+${categoria.idCategoria}"
+                                                <a th:href="@{/Resenas/eliminar/}+${resenas.idResenas}"
                                                    class="btn btn-danger">
-                                                    <i class="fas fa-trash"></i> [[#{accion.eliminar}]]</a>
-                                                <a th:href="@{/categoria/modificar/}+${categoria.idCategoria}"
-                                                   class="btn btn-success">
-                                                    <i class="fas fa-pencil"></i> [[#{accion.actualizar}]]</a></td></tr>
+                                                    <i class="fas fa-trash"></i> [[#{accion.eliminarR}]]</a>
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="text-center p-2" th:if="${categorias == null or categorias.empty}">
+                            <div class="text-center p-2" th:if="${resenas == null or resenas.empty}">
                                 <span>[[#{lista.vacia}]]</span>
                             </div>
                         </div>
@@ -96,8 +87,8 @@
                     <div class="col-md-3" style="margin-top: 120px">
                         <div class="card text-center bg-success text-white mb-3">
                             <div class="card-body">
-                                <h3>[[#{categoria.total}]]</h3>
-                                <h4 class="fs-2"><i class="fas fa-users"></i> [[${totalCategorias}]]</h4>
+                                <h3>[[#{resenas.total}]]</h3>
+                                <h4 class="fs-2"><i class="fas fa-users"></i> [[${totalResenas}]]</h4>
                             </div>
                         </div>
                         <div class="container">
@@ -107,8 +98,8 @@
                                         type="button"
                                         class="btn btn-primary btn-block" style="width: 285px"
                                         data-bs-toggle="modal" 
-                                        data-bs-target="#agregarCategoria">
-                                        <i class="fas fa-plus"></i> [[#{categoria.agregar}]]
+                                        data-bs-target="#agregarResenas">
+                                        <i class="fas fa-plus"></i> [[#{resenas.agregar}]]
                                     </button>
                                 </div>
                             </div>
@@ -119,16 +110,16 @@
         </section>
 
         <!-- 4 Fragmento que se utiliza en la página modifca.html -->
-        <section th:fragment="editarCategoria">
+        <section th:fragment="editarResenas">
             <div class="row">
                 <div class="col-md-2"></div>
                 <div class="col-md-8" style="margin-top: 120px">
                     <form method="POST"
-                          th:action="@{/categoria/guardar}" 
-                          th:object="${categoria}"
+                          th:action="@{/Resenas/guardar}" 
+                          th:object="${resenas}"
                           class="was-validated"                          
                           enctype="multipart/form-data">
-                        <input type="hidden" name="idCategoria" th:field="*{idCategoria}"/>
+                        <input type="hidden" name="idResenas" th:field="*{idResenas}"/>
                         <input type="hidden" name="rutaImagen" th:field="*{rutaImagen}"/>
                         <div id=details>
                             <div class="container">
@@ -140,9 +131,9 @@
                                             </div>
                                             <div class="card-body">
                                                 <div class="mb-3">
-                                                    <label for="descripcion">[[#{categoria.descripcion}]]</label>
+                                                    <label for="resenasD">[[#{resenas.resenasD}]]</label>
                                                     <input type="text" class="form-control" 
-                                                           name="descripcion" th:field="*{descripcion}"
+                                                           name="resenasD" th:field="*{resenasD}"
                                                            required="true">
                                                 </div>
                                                 </div>
@@ -154,20 +145,20 @@
                     </form>
                 </div>
             </div>
-            <section th:replace="~{categoria/fragmentos :: botonesEditar}"/>
+            <section th:replace="~{resenas/fragmentos :: botonesEditar}"/>
         </section>
 
         <!-- 5 Fragmento que se utiliza en el fragmento anterior -->
         <section th:fragment="botonesEditar">
-            <div class="container py-4 mb-4 bg-light" style="display: flex; justify-content: center; width: 1250px; border-radius: 5px; margin-top: 20px">
+            <div class="container py-4 mb-4 bg-light" style="display: flex; justify-content: center; width: 1250px; border-radius: 5px; margin-top: 30px">
                 <div class="row">
                     <div class="col-md-4 d-grid" style="width: 285px">
-                        <a th:href="@{/categoria/listado}" class="btn btn-primary">
+                        <a th:href="@{/resenas/listado}" class="btn btn-primary">
                             <i class="fas fa-arrow-left"></i> [[#{accion.regresar}]]
                         </a>
                     </div>
                     <div class="col-md-4 d-grid" style="width: 285px">                                
-                        <a th:href="@{/categoria/eliminar/}+${categoria.idCategoria}"
+                        <a th:href="@{/Resenas/eliminar/}+${resenas.idResenas}"
                            class="btn btn-danger">
                             <i class="fas fa-trash"></i> [[#{accion.eliminar}]]
                         </a>

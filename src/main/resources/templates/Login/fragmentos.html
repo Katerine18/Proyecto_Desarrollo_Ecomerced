@@ -9,25 +9,31 @@
     <body class="bodyhome">
         <section th:fragment="inicio_sesion" class="py-4 mb-4 custom-button-container">
             <div class="wrapper">
-                <form action="" class="form">
-                    <form action="" class="form">
-                        <h1 class="title">Inicio de Sesion</h1>
-                        <div class="inpUsuarioDiv">
-                            <input type="email" name="" id="" class="inputUsuario" placeholder="Usuario">
-                                <i class="fa-solid fa-user"></i>
+                <form method="POST" th:action="@{/login}">
+
+                    <h1 class="title" style="text-align: center; color: #01939c">Inicio de Sesion</h1>
+                    <div class="inp" style="text-align: center">
+                        <label for="username"></label>
+                        <input class="inputUser" type="text" name="username" id="username" placeholder="Usuario"/>
+                        <i class="fa-solid fa-user"></i>
+
+                        <div class="inp">
+                            <label for="password"></label>
+                            <input class="inputPassword" type="password" name="password" id="password" placeholder="Contraseña"/>
+                            <i class="fa-solid fa-lock"></i>
                         </div>
-                        <div class="inpPasswordDiv">
-                            <input type="password" name="" id="" class="inputPassword" placeholder="Contraseña">
-                                <i class="fa-solid fa-lock"></i>
-                        </div>
-                        <button class="submit-btn" style="color: #01939c"><a a th:href="@{/inicio/listado}" class="link">Iniciar sesión</a></button>
-                        <p class="footer" style="color: #01939c">¿No tienes cuenta?  <a a href="http://localhost/Registro/Registro" class="link">Por favor, Regístrate</a></p>   
-                    </form>
+
+                        <button class="submit-btn" style="color: #01939c" type="submit">Iniciar sesión</button>
+                        <p class="footer" style="color: #01939c">¿No tienes cuenta?  <a a th:href="@{Registro/Registro}" class="link">Por favor, Regístrate</a></p>
+
                 </form>
                 <div class="banner">
                     <h1 class="wel_text">Bienvenid@</h1>
                     <p class="para" style="color: #01939c">Encuentra todo lo que deseas en Tecnotopia</p>
                 </div>
+            </div>
+            <div th:if="${param.error != null}">
+                <h3>[[#{error.login}]]</h3>
             </div>
         </section>
     </body>

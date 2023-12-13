@@ -6,8 +6,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -43,6 +46,7 @@ public class ProjectConfig implements WebMvcConfigurer {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/").setViewName("/inicio/listado");
         registry.addViewController("/Contactanos/Contactanos").setViewName("/Contactanos/Contactanos");
         registry.addViewController("/Noticias/Noticias").setViewName("/Noticias/Noticias");
         registry.addViewController("/producto/listado").setViewName("/producto/listado");
@@ -50,6 +54,8 @@ public class ProjectConfig implements WebMvcConfigurer {
         registry.addViewController("/Registro/Registro").setViewName("/Registro/Registro");
         registry.addViewController("/Reseñas/Reseñas").setViewName("Reseñas/Reseñas");
         registry.addViewController("/Juegos/Juegos").setViewName("/Juegos/Juegos");
+        registry.addViewController("/login").setViewName("/login");
+        registry.addViewController("/registro/nuevo").setViewName("/registro/nuevo");
         //faltan de darles forma
         registry.addViewController("/Favoritos/FavoritosUsuario").setViewName("/Favoritos/FavoritosUsuario");
         registry.addViewController("/Consola/Consolas").setViewName("/Consola/Consolas");
@@ -68,8 +74,9 @@ public class ProjectConfig implements WebMvcConfigurer {
                         "/Computadoras/**", "/Consola/**", "/Contactanos/**", 
                         "/Favoritos/**", "/Juegos/**", 
                         "/Login/**", "/layout/**", 
-                        "/Reseñas/**", "/categoria/**", 
-                        "/inicio/**", "/producto/**", "/Registro/**")
+                        "/Resenas/**", "/categoria/**", 
+                        "/inicio/**", "/producto/**", "/Registro/**",
+                        "/logout/**")
                         .permitAll()
                 .requestMatchers(
                         "/producto/nuevo","/producto/guardar",
@@ -94,8 +101,8 @@ public class ProjectConfig implements WebMvcConfigurer {
         return http.build();
     }
 
-/* El siguiente método se utiliza para completar la clase no es 
-    realmente funcional, la próxima semana se reemplaza con usuarios de BD */    
+ /*El siguiente método se utiliza para completar la clase no es 
+    realmente funcional, la próxima semana se reemplaza con usuarios de BD*/     
    /*@Bean
     public UserDetailsService users() {
         UserDetails admin = User.builder()

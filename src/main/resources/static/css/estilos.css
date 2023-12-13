@@ -141,6 +141,7 @@ button.submit-btn:hover {
     display: flex;
     position: fixed;
     z-index: 10;
+    
 }
 
 .logo{
@@ -455,6 +456,7 @@ button.submit-btn:hover {
 .div-desc-precio {
     display: flex;
     justify-content: space-between;
+    font-size:15px;
 }
 /*Fin de estilos descripción y precio cards*/
 
@@ -472,8 +474,45 @@ button.submit-btn:hover {
 }
 /*Final del Carousel Home*/
 
-/*Inicio del Login*/
-.inputUsuario {
+/*Inicio de estilos reseñas*/
+.btn.btn-danger {
+  color: white; 
+  background: blue;
+  border: blue;
+}
+
+button.btn.btn-corazon {
+    width: 30px; 
+    height: 30px;  
+    font-size: 20px; 
+    text-align: center;
+}
+
+/*Favoritos*/
+.Favoritos-container {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.Favoritos-header {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.Favoritos-header h2 {
+    font-size: 24px;
+    color: #333;
+
+}
+
+/* Inicio de Login y registro */
+
+.inputUser {
     color: black;
 }
 
@@ -481,12 +520,8 @@ button.submit-btn:hover {
     color: black;
 }
 
-.inpUsuarioDiv {
-    margin: 10px;
-}
-
 .submit-btn {
     margin: 10px;
 }
 
-/*Fin del Login*/
+/* Fin de Login y registro */

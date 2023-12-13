@@ -1,65 +1,52 @@
 package com.Tienda_Proyecto.controller;
 
-import com.Tienda_Proyecto.domain.Categoria;
-import com.Tienda_Proyecto.service.impl.FirebaseStorageServiceImpl;
+import com.Tienda_Proyecto.domain.Resenas;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
-import com.Tienda_Proyecto.service.CategoriaService;
+import com.Tienda_Proyecto.service.ResenasService;
 
 @Controller
-@RequestMapping("/Reseñas")
+@RequestMapping("/Resenas")
 public class ResenasController {
 
     @Autowired
-    private CategoriaService categoriaService;
+    private ResenasService resenasService;
 
     @GetMapping("/listado")
     public String listado(Model model) {
-        var categorias = categoriaService.getCategorias(false);
-        model.addAttribute("categorias", categorias);
-        model.addAttribute("totalCategorias", categorias.size());
-        return "/Reseñas/listado";
+        var resenas = resenasService.getResenas(false);
+        model.addAttribute("resenas", resenas);
+        model.addAttribute("totalResenas", resenas.size());
+        return "/Resenas/listado";
     }
 
     @GetMapping("/nuevo")
-    public String categoriaNuevo(Categoria categoria) {
-        return "/Reseñas/modifica";
+    public String resenaNuevo(Resenas resenas) {
+        return "/Resenas/modifica";
     }
-
-    @Autowired
-    private FirebaseStorageServiceImpl firebaseStorageService;
 
     @PostMapping("/guardar")
-    public String categoriaGuardar(Categoria categoria,
-            @RequestParam("imagenFile") MultipartFile imagenFile) {
-        if (!imagenFile.isEmpty()) {
-            categoriaService.save(categoria);
-            categoria.setRutaImagen(
-                    firebaseStorageService.cargaImagen(
-                            imagenFile,
-                            "Reseñas",
-                            categoria.getIdCategoria()));
-        }
-        categoriaService.save(categoria);
-        return "redirect:/Reseñas/listado";
+    public String resenaGuardar(Resenas resena) {
+        resenasService.save(resena);
+        return "redirect:/Resenas/listado";
+    }
+   
+
+    @GetMapping("/eliminar/{idResenas}")
+    public String resenaEliminar(Resenas resena) 
+        {
+        resenasService.delete(resena);
+        return "redirect:/Resenas/listado";
     }
 
-    @GetMapping("/eliminar/{idCategoria}")
-    public String categoriaEliminar(Categoria categoria) {
-        categoriaService.delete(categoria);
-        return "redirect:/Reseñas/listado";
-    }
-
-    @GetMapping("/modificar/{idCategoria}")
-    public String categoriaModificar(Categoria categoria, Model model) {
-        categoria = categoriaService.getCategoria(categoria);
-        model.addAttribute("categoria", categoria);
-        return "/Reseñas/modifica";
+    @GetMapping("/modificar/{idResenas}")
+    public String resenaModificar(Resenas resena, Model model) {
+        resena = resenasService.getResenas(resena);
+        model.addAttribute("resenas", resena);
+        return "/Resenas/modifica";
     }
 }
