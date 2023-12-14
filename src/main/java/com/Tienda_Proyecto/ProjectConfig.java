@@ -69,7 +69,7 @@ public class ProjectConfig implements WebMvcConfigurer {
                         "/carrito/**","/pruebas/**","/reportes/**",
                         "/registro/**","/js/**","/webjars/**","/css/**","/Noticias/**",
                         "/layout/**", "/Noticias/**", "/templates/**", 
-                        "/celular/**", "/Monitores/**", "/Contactanos/**", 
+                        "/celular/**", "/monitor/**", "/Contactanos/**", 
                         "/Favoritos/**", "/Juegos/**", 
                         "/Login/**", "/layout/**", 
                         "/Resenas/**", "/categoria/**", 
