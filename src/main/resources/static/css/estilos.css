@@ -525,3 +525,13 @@ button.btn.btn-corazon {
 }
 
 /* Fin de Login y registro */
+
+/* Inicio de Estilos Juegos */
+
+.juegosStyle img {
+    width: 500px;
+    margin-top: 50px;
+    border-radius: 50px;
+    padding: 20px;
+}
+/* Fin de Estilos Juegos */
