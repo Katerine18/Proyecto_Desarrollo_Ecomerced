@@ -58,8 +58,6 @@ public class ProjectConfig implements WebMvcConfigurer {
         registry.addViewController("/registro/nuevo").setViewName("/registro/nuevo");
         //faltan de darles forma
         registry.addViewController("/Favoritos/FavoritosUsuario").setViewName("/Favoritos/FavoritosUsuario");
-        registry.addViewController("/Monitores/listado").setViewName("/Monitores/listado");
-        registry.addViewController("/Celulares/listado").setViewName("/Celulares/listado");
 
     }
     
@@ -71,7 +69,7 @@ public class ProjectConfig implements WebMvcConfigurer {
                         "/carrito/**","/pruebas/**","/reportes/**",
                         "/registro/**","/js/**","/webjars/**","/css/**","/Noticias/**",
                         "/layout/**", "/Noticias/**", "/templates/**", 
-                        "/Celulares/**", "/Monitores/**", "/Contactanos/**", 
+                        "/celular/**", "/Monitores/**", "/Contactanos/**", 
                         "/Favoritos/**", "/Juegos/**", 
                         "/Login/**", "/layout/**", 
                         "/Resenas/**", "/categoria/**", 

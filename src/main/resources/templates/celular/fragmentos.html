@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+    <head th:replace="~{layout/plantilla :: head}">
+        <title>TechShop</title>
+    </head>
+    <body>
+        <!-- 1 Sección para crear el boton de agregar... llamará a una ventana modal-->
+        <!--<section th:fragment="botonesAgregar" class="py-4 mb-4 bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3" sec:authorize="hasRole('ROLE_ADMIN')">   
+                        <button 
+                            type="button" 
+                            class="btn btn-primary btn-block" 
+                            data-bs-toggle="modal" 
+                            data-bs-target="#agregarCelular">
+                            <i class="fas fa-plus"></i> [[#{celular.agregar}]]
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>-->
+
+        <!-- 2 Fragmento para agregar celular, es la ventana modal -->
+        <section th:fragment="agregarCelular">
+            <div id="agregarCelular" 
+                 class="modal fade" 
+                 tabindex="-1" 
+                 aria-labelledby="exampleModalLabel" 
+                 aria-hidden="true">
+                <div class="modal-dialog modal-md">
+                    <div class="modal-content">
+                        <div class="modal-header bg-info text-white">
+                            <h5 class="modal-title">[[#{celular.agregar}]]</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div> 
+                        <form th:action="@{/celular/guardar}" th:object="${celular}"
+                              method="POST" class="was-validated" enctype="multipart/form-data">
+                            <div class="modal-body">
+                                <div class="mb-3">
+                                    <label for="idCategoria">[[#{celular.categoria}]]</label>
+                                    <select class="form-select" aria-label="Default select example"
+                                            name="categoria.idCategoria">
+                                        <option th:each="c : ${categorias}"
+                                                th:value="${c.idCategoria}"
+                                                th:text="${c.descripcion}">
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="descripcion">[[#{celular.descripcion}]]</label>
+                                    <input type="text" class="form-control" name="descripcion" required="true"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="detalle">[[#{celular.detalle}]]</label>
+                                    <textarea class="form-control" name="detalle" rows="3"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="precio">[[#{celular.precio}]]</label>
+                                    <input type="number" class="form-control" name="precio"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="existencias">[[#{celular.existencias}]]</label>
+                                    <input type="number" class="form-control" name="existencias"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="imagen">[[#{celular.imagen}]]</label>
+                                    <input class="form-control" type="file" name="imagenFile" onchange="readURL(this);"/>
+                                    <img id="blah" src="#" alt="your image" height="200"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="activo">[[#{celular.activo}]]</label>
+                                    <input class="form-check-input" type="checkbox" name="activo" id="activo"/>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-primary" type="submit">Guardar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3 Sección principal para mostrar la informaccion de la entidad celular -->
+        <section th:fragment="listadoCelulares" id="celulars">
+            <div class="container">
+                <div class="row" style="width: 1500px">
+                    <div class="col-md-9" style="margin-top: 120px">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>[[#{celular.listado}]]</h4>
+                            </div>
+                            <div th:if="${celulars != null and !celulars.empty}">
+                                <table class="table table-striped table-hover">
+                                    <thead class="table-dark">
+                                        <tr><th>#</th>
+                                            <th>[[#{celular.descripcion}]]</th>
+                                            <th>[[#{celular.precio}]]</th>
+                                            <th>[[#{celular.existencias}]]</th>
+                                            <th>[[#{celular.total}]]</th>
+                                            <th>[[#{celular.activo}]]</th>
+                                            <th>[[#{celular.categoria}]]</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr th:each="celular, contador : ${celulars}">
+                                            <td>[[${contador.count}]]</td>
+                                            <td>[[${celular.descripcion}]]</td>
+                                            <td class="text-end">[[${celular.precio}]]</td>
+                                            <td class="text-center">[[${celular.existencias}]]</td>
+                                            <td class="text-end">[[${celular.precio*celular.existencias}]]</td>
+                                            <td th:text="${celular.activo} ? 'Activa' : 'Inactiva'" />
+                                            <td>[[${celular.categoria.descripcion}]]</td>
+                                            <td>
+                                                <a th:href="@{/celular/eliminar/}+${celular.idCelular}"
+                                                   class="btn btn-danger">
+                                                    <i class="fas fa-trash"></i> [[#{accion.eliminar}]]</a>
+                                                <a th:href="@{/celular/modificar/}+${celular.idCelular}"
+                                                   class="btn btn-success">
+                                                    <i class="fas fa-pencil"></i> [[#{accion.actualizar}]]</a></td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="text-center p-2" th:if="${celulars == null or celulars.empty}">
+                                <span>[[#{lista.vacia}]]</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3" style="margin-top: 120px">
+                        <div class="card text-center bg-success text-white mb-3">
+                            <div class="card-body">
+                                <h3>[[#{celular.total}]]</h3>
+                                <h4 class="fs-2"><i class="fas fa-users"></i> [[${totalCelulares}]]</h4>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-3">   
+                                    <button 
+                                        type="button" 
+                                        class="btn btn-primary btn-block" style="width: 325px"
+                                        data-bs-toggle="modal" 
+                                        data-bs-target="#agregarCelular">
+                                        <i class="fas fa-plus"></i> [[#{celular.agregar}]]
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4 Fragmento que se utiliza en la página modifca.html -->
+        <section th:fragment="editarCelular">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8" style="margin-top: 120px">
+                    <form method="POST"
+                          th:action="@{/celular/guardar}" 
+                          th:object="${celular}"
+                          class="was-validated"                          
+                          enctype="multipart/form-data">
+                        <input type="hidden" name="idCelular" th:field="*{idCelular}"/>
+                        <input type="hidden" name="rutaImagen" th:field="*{rutaImagen}"/>
+                        <div id=details>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h4>[[#{accion.actualizar}]]</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="mb-3">
+                                                    <label for="descripcion">[[#{celular.descripcion}]]</label>
+                                                    <input type="text" class="form-control" 
+                                                           name="descripcion" th:field="*{descripcion}"
+                                                           required="true">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="detalle">[[#{celular.detalle}]]</label>
+                                                    <textarea class="form-control" 
+                                                              name="detalle" 
+                                                              rows="3"></textarea>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="precio">[[#{celular.precio}]]</label>
+                                                    <input type="number"
+                                                           class="form-control"
+                                                           name="precio"/>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="existencias">[[#{celular.existencias}]]</label>
+                                                    <input type="number"
+                                                           class="form-control"
+                                                           name="existencias"/>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="rutaImagen">[[#{celular.rutaImagen}]]</label>
+                                                    <input class="form-control" type="file" name="imagenFile"
+                                                           onchange="readURL(this);" />
+                                                    <img id="blah" th:src="@{${celular.rutaImagen}}" alt="your image" height="200"/>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="activo">[[#{celular.activo}]]</label>
+                                                    <input class="form-check-input" 
+                                                           type="checkbox" 
+                                                           name="activo" 
+                                                           id="activo"
+                                                           th:field="*{activo}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </form>
+                </div>
+            </div>
+            <section th:replace="~{celular/fragmentos :: botonesEditar}"/>
+        </section>
+
+        <!-- 5 Fragmento que se utiliza en el fragmento anterior -->
+        <section th:fragment="botonesEditar">
+            <div class="container py-4 mb-4 bg-light" style="display: flex; justify-content: center; width: 1240px; border-radius: 5px; margin-top: 20px">
+                <div class="row">
+                    <div class="col-md-4 d-grid" style="width: 285px">
+                        <a th:href="@{/celular/listado}" class="btn btn-primary">
+                            <i class="fas fa-arrow-left"></i> [[#{accion.regresar}]]
+                        </a>
+                    </div>
+                    <div class="col-md-4 d-grid" style="width: 285px">                                
+                        <a th:href="@{/celular/eliminar/}+${celular.idCelular}"
+                           class="btn btn-danger">
+                            <i class="fas fa-trash"></i> [[#{accion.eliminar}]]
+                        </a>
+                    </div>
+                    <div class="col-md-4 d-grid" style="width: 285px">
+                        <button type="submit" class="btn btn-success">
+                            <i class="fas fa-check"></i> [[#{accion.guardar}]]
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>

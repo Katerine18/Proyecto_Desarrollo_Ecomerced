@@ -62,13 +62,13 @@
                 <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
                 <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
         </section>
-        <!-- 2 Sección principal para mostrar la informaccion de los productos seleccionados -->
-        <section th:fragment="listadoProductos">
+        <!-- 2 Sección principal para mostrar la informaccion de los monitores seleccionados -->
+        <section th:fragment="listadoMonitores">
             <div class="container" style="width: 2000px">
                 <div class="row">
-                    <div th:if="${productos != null and !productos.empty}" style="margin-top: 100px">
+                    <div th:if="${monitores != null and !monitores.empty}" style="margin-top: 100px">
                         <div class="row row-cols-4">
-                            <div class="card" th:each="p : ${productos}" style="margin: 40px 40px 40px 40px">
+                            <div class="card" th:each="p : ${monitores}" style="margin: 40px 40px 40px 40px">
                                 <figure>
                                     <img th:src="${p.rutaImagen}" style="margin-top: 10px; border-radius: 10px"
                                          class="card-img-top"
@@ -131,13 +131,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="text-center p-2" th:if="${productos == null or productos.empty}">
+                <div class="text-center p-2" th:if="${monitores == null or monitores.empty}">
                     <span>[[#{lista.vacia}]]</span>
                 </div>
             </div>
             </div>
         </section>
-        <!-- 3 Sección principal para hacer filtros de productos -->
+        <!-- 3 Sección principal para hacer filtros de monitores -->
         <section th:fragment="filtros">
             <div class="row py-4">
                 <div class="col-md-3">
